@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><a href='/books'>Home</a></p>
+    <p><a href='/logout'>logout</a></p>
+    <h1>Add a book title and a review:</h1>
+    <form action="/books/create" method="post">
+        {% csrf_token %}
+        <p>
+        <label>Book title</label>
+        <input type="text" name="title">
+        </p>
+        <p>
+            <label>Author</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label>Review</label>
+            <input type="textarea" name="content">
+        </p>
+        <p>
+            <label>rate</label>
+            <input type="text" name="rate">
+        </p>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

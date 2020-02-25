@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Hello {{user.alias}}</h1>
+    <p><a href='/books/add'>Add book and review</a></p>
+    <p><a href='/logout'>logout</a></p>
+</body>
+    <div style="display: inline-block;">
+        <h1>Recent Book Reviews:</h1>
+        {% for review in reviews %}
+        <!-- {% for review in range(lenreviews), len(reviews)-3, -1)} -->
+        <ul>
+            <h3><a href='/books/{{review.book.id}}'>{{review.book.title}}</a></h3>
+            <li>rate: {{review.rate}}</li>
+            <li>{{review.commenter.alias}} says: {{review.content}}</li>
+            <li>Posted on {{review.created_at}}</li>
+        </ul>
+        {% endfor %}
+            
+    </div>
+    <div style="display: inline-block; vertical-align: top; padding-left: 80px">
+        <h1>Other books with reviews:</h1>
+        <!-- {% for review in range(0, len(reviews)-3,1)} -->
+        {% for book in books %}
+            <p><a href='/books/{{review.book.id}}'>{{book.title}}</a></p>
+        {% endfor %}
+        
+    </div>
+</html>
